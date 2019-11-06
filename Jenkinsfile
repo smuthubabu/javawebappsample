@@ -26,7 +26,7 @@ node {
         az account set -s $AZURE_SUBSCRIPTION_ID
       '''
     }
-    // get publish setting(s)
+    // get publish setting
     def pubProfilesJson = sh script: "az webapp deployment list-publishing-profiles -g $resourceGroup -n $webAppName", returnStdout: true
     def ftpProfile = getFtpPublishProfile pubProfilesJson
     // upload package
